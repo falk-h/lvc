@@ -1,14 +1,30 @@
 #include <stdio.h>
-//#include <stdlib.h>
 
 int main(int argc, char *argv[]) {
-                        
-        FILE *weekstr = popen("date \"+%V\"", "r");
-        char w1 = getc(weekstr);
-        char w0 = getc(weekstr);
-        pclose(weekstr);
-        char week = 10 * (w1 - '0') + (w0 - '0');
+        // Get the current week using date.
+        FILE *stream = popen("date \"+%V\"", "r");
         
+        // Get first char
+        char w1 = getc(stream);
+
+        // Get second char
+        char w0 = getc(stream);
+
+        // Close the stream
+        pclose(stream);
+
+        // Convert to a number
+        char week = 10 * (w1 - '0') + (w0 - '0');
+
+        /*
+         * Horrible Wall of Ifs.
+         * First checks if our week is a reexamination week, checks if it's an
+         * examination week, checks if it's a teaching week, and calculates
+         * which one it is with an offset, and finally just outputs the week's
+         * number if it doesn't fall in any of the above categories. Study
+         * period 4 is in there twice because it has a reexamination week in
+         * the middle, and therefore needs two different offsets.
+         */
         if (week == 1 || week == 14 || week == 22  || week == 33) {
             // Reexamination week.
             printf("OTV");
