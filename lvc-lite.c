@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
 
 
         // Convert the first two chars in week_string to a number.
-        unsigned char week = 10 * (week_string[0] - *"0") + week_string[1] - *"0";
+        unsigned char week = 10 * (week_string[0] - '0') + week_string[1] - '0';
 
         /*
          * Horrible Wall of Ifs.
