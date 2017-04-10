@@ -27,6 +27,8 @@
 *.i*86
 *.x86_64
 *.hex
+lvc
+lvc-lite
 
 # Debug files
 *.dSYM/

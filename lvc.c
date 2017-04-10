@@ -67,7 +67,7 @@ int main(int argc, char *argv[]) {
          * period 4 is in there twice because it has a reexamination week in
          * the middle, and therefore needs two different offsets.
          */
-        if (week == 1 || week == 14 || week == 22  || week == 33) {
+        if (week == 1 || week == 16 || week == 22  || week == 33) {
             // Reexamination week.
             printf("OTV\n");
         } else if (week == 11 || week == 21 || week == 43 || week == 2) {
@@ -82,10 +82,10 @@ int main(int argc, char *argv[]) {
         } else if (week >= 3 && week <= 10) {
             // Study period 3
             printf("LV%d\n", week - 2);
-        } else if (week >= 12 && week <= 13) {
+        } else if (week >= 12 && week <= 15) {
             // Study period 4
             printf("LV%d\n", week - 11);
-        } else if (week >= 15 && week <= 20) {
+        } else if (week >= 17 && week <= 20) {
             // Study period 4
             printf("LV%d\n", week - 12);
         } else {
